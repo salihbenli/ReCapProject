@@ -17,7 +17,7 @@ namespace ConsoleIU
         {
             Console.WriteLine("Car Color"+ "\t" +"Car Model" + "\t" + "Brand" + "\t\t" + "Description" + "\t" + "DailyPrice");
             CarManager carManager2 = new CarManager(new EfCarDal());
-            foreach (var car2 in carManager2.GetCarDetail())
+            foreach (var car2 in carManager2.GetCarDetail().Data)
             {
                 Console.WriteLine(car2.ColorName + "\t" + car2.ModelYear + "\t" + car2.BrandName + "\t" + car2.Description + "\t" + car2.DailyPrice);
             }
@@ -26,7 +26,7 @@ namespace ConsoleIU
         private static void EfCarDal()
         {
             CarManager carManager = new CarManager(new EfCarDal());
-            foreach (var car in carManager.GetAll())
+            foreach (var car in carManager.GetAll().Data)
             {
                 Console.WriteLine(car.Description + " " + car.ModelYear + " yılına ait günlük fiyatı " + car.DailyPrice + " TL");
             }
