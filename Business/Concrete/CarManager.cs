@@ -22,10 +22,11 @@ namespace Business.Concrete
         {
             if (car.DailyPrice>0)
             {
-                return new ErrorResult(Messages.CarDaily);
+                _carDal.Add(car);
+                return new SuccessResult(Messages.Added);
             }
-            _carDal.Add(car);
-            return new SuccessResult(Messages.Added);           
+            
+            return new ErrorResult(Messages.CarDaily);           
         }
 
         public IResult Delete(Car car)
@@ -71,8 +72,12 @@ namespace Business.Concrete
 
         public IResult Update(Car car)
         {
-            _carDal.Update(car);
-            return new SuccessResult(Messages.Updated);
+            if (car.DailyPrice > 0)
+            {
+                _carDal.Update(car);
+                return new SuccessResult(Messages.Updated);
+            }
+            return new ErrorResult(Messages.CarDaily);   
         }
     }
 }
