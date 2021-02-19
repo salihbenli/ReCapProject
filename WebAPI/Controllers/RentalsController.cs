@@ -19,7 +19,7 @@ namespace WebAPI.Controllers
             _rentalsService = rentalsService;
         }
         [HttpPost("add")]
-        public IActionResult Add(Rentals rentals)
+        public IActionResult Add(Rental rentals)
         {
             var result = _rentalsService.Add(rentals);
             if (result.Success)
@@ -29,7 +29,7 @@ namespace WebAPI.Controllers
             return BadRequest(result);
         }
         [HttpPut("update")]
-        public IActionResult Update(Rentals rentals)
+        public IActionResult Update(Rental rentals)
         {
             var result = _rentalsService.Update(rentals);
             if (result.Success)
@@ -40,7 +40,7 @@ namespace WebAPI.Controllers
         }
 
         [HttpDelete("delete")]
-        public IActionResult Delete(Rentals rentals)
+        public IActionResult Delete(Rental rentals)
         {
             var result = _rentalsService.Delete(rentals);
             if (result.Success)

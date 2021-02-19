@@ -19,7 +19,7 @@ namespace WebAPI.Controllers
             _usersService = usersService;
         }
         [HttpPost("add")]
-        public IActionResult Add(Users users)
+        public IActionResult Add(User users)
         {
             var result = _usersService.Add(users);
             if (result.Success)
@@ -29,7 +29,7 @@ namespace WebAPI.Controllers
             return BadRequest(result);
         }
         [HttpPut("update")]
-        public IActionResult Update(Users users)
+        public IActionResult Update(User users)
         {
             var result = _usersService.Update(users);
             if (result.Success)
@@ -40,7 +40,7 @@ namespace WebAPI.Controllers
         }
 
         [HttpDelete("delete")]
-        public IActionResult Delete(Users users)
+        public IActionResult Delete(User users)
         {
             var result = _usersService.Delete(users);
             if (result.Success)
